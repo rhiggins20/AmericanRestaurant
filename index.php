@@ -12,7 +12,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css?v=1.0">
+  <link rel="stylesheet" href="css/main.css">
 
 
 
@@ -31,6 +31,7 @@
       <div class="hero-text">
         <h1>The American Restaurant</h1>
         <p>Official Site</p>
+        <button onclick="makeReservation()">Make a Reservation</button>
 
       </div>
   </div>
@@ -67,10 +68,15 @@
 
       <div class="row">
         <div class="col">
-          Left text
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Porttitor leo a diam sollicitudin tempor id.
+          Mattis rhoncus urna neque viverra justo.
         </div>
         <div class="col">
-          Right text
+          Imperdiet massa tincidunt nunc pulvinar sapien et ligula.
+          Quis ipsum suspendisse ultrices gravida dictum fusce.
+          Imperdiet nulla malesuada pellentesque elit eget.
+          Purus in massa tempor nec feugiat nisl.
         </div>
       </div>
 
