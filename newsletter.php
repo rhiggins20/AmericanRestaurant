@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/main.css">
+
 <?php
   ini_set('display_error', 1);
   ini_set('display_startup_error', 1);
@@ -30,13 +32,26 @@
 	<div class="container">
   	<?php
     	if (isset($_GET['msg']) && $_GET['msg'] == 'thankyou') {
-      	if (isset($_GET['last_id']) && !empty($_GET['last_id'])) {
+      	if (isset($_GET['last_entry']) && !empty($_GET['last_entry'])) {
 
         	include 'includes/dbconnect.php';
+          $entry_id = $_GET['last_entry'];
+          $query = "SELECT *
+                    FROM entries
+                    WHERE id = '$entry_id'";
+          $result = mysqli_query($conn, $query);
 
+          while($row = mysqli_fetch_assoc($result)) {
+            $fname = $row['fname'];
+            $email = $row['email'];
+          }
+
+          echo "<p>Thank you for your submission, $fname!</p>";
+          echo "<p>You will be receiving emails to: $email</p>";
+          echo "<p><a href='newsletter.php'></a>Enter another subscription!</p>";
 
       	}
-    	} else {
+    	}
 
   	?>
 
@@ -48,11 +63,11 @@
     	<form name="NewsletterForm" action="process_newsletter.php" method="POST">
         <div class="form-group">
           <label for="First">First Name</label>
-          <input type="text" class="form-control" name="fName" placeholder="Enter your first name."></input>
+          <input type="text" class="form-control" name="fname" placeholder="Enter your first name."></input>
         </div>
         <div class="form-group">
           <label for="Last">Last Name</label>
-          <input type="text" class="form-control" name="lName" placeholder="Enter your last name."></input>
+          <input type="text" class="form-control" name="lname" placeholder="Enter your last name."></input>
         </div>
         <div class="form-group">
           <label for="Email">Email Address</label>
@@ -64,10 +79,6 @@
         	<button type="submit" value="Submit" name="Submit" class="btn btn-primary">Submit</button>
       	</div>
       </form>
-
-  	<?php
-  	}
-  	?>
 
 
 	</div><!-- ./container -->
